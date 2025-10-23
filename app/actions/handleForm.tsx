@@ -1,38 +1,51 @@
 "use server";
 
-export async function handleRegister(formData: FormData) {
-  console.log("Form submitted:", formData);
-  const email = formData.get("email");
-  const password = formData.get("password");
-  const confirmPassword = formData.get("confirmPassword");
+import { FormState } from "@/app/components/scope/Form/types";
 
-  if (!email || !password || !confirmPassword) {
-   console.log("Missing fields in the form data.");
-    return;
+
+/* Registration Logic */
+export async function handleRegister(
+  prevState: FormState,
+  formData: FormData
+): Promise<FormState> {
+  console.log("Form submitted:", formData);
+  const email = formData.get("email") as string;
+  const password = formData.get("password") as string;
+  const confirmPassword = formData.get("confirmPassword") as string;
+
+  if (!email) {
+    console.log("Missing fields in the form data.");
+    return { ...prevState, success: false, error: true };
   }
 
   if (password !== confirmPassword) {
     console.log("Passwords do not match.");
-    return;
+    return { ...prevState, success: false, error: true };
   }
 
   console.log("Registration successful:", { email, password });
   // Proceed with registration logic
+
+  return { email, password, confirmPassword, success: true, error: false };
 }
 
 
 
-
-export async function handleLogin(formData: FormData) {
+/* Login Logic */
+export async function handleLogin(
+  prevState: FormState,
+  formData: FormData
+): Promise<FormState> {
   console.log("Form submitted:", formData);
-  const email = formData.get("email");
-  const password = formData.get("password");
+  const email = formData.get("email") as string;
+  const password = formData.get("password") as string;
 
   if (!email || !password) {
     console.log("Missing fields in the form data.");
-    return;
+    return { ...prevState, success: false, error: true };
   }
 
   console.log("Login successful:", { email, password });
   // Proceed with login logic
+  return { email, password, success: true, error: false };
 }
