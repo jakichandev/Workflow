@@ -25,8 +25,8 @@ const formClass = {
   button:
     "bg-theme-galaxy-500 dark:bg-theme-galaxy-400 hover:bg-theme-galaxy-600 text-white p-2 rounded-md w-full font-semibold transition-colors duration-300 cursor-pointer",
   label:
-    "font-semibold text-theme-galaxy-500 dark:text-theme-moon-200 mb-1 block",
-   span: "text-theme-moon-500 dark:text-theme-moon-100",
+    "font-semibold text-theme-galaxy-500 dark:text-theme-moon-200 mb-1 block text-small",
+  span: "text-theme-moon-500 dark:text-theme-moon-100",
 };
 
 const FormField = ({ label, onChange, type, placeholder }: FormFieldProps) => {

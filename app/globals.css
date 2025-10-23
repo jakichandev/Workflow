@@ -44,12 +44,18 @@
 
 /* Text Sizes */
   --text-big: 2rem;
+  --text-large: 1.75rem;
   --text-medium: 1.5rem;
+  --text-base: 1.25rem;
   --text-small: 1rem;
 
 /* Breakpoints */
   --breakpoint-sm: 480px;
   --breakpoint-md: 660px;
+}
+
+:root {
+  --color-icon-toggler: #d5dbe2;
 }
 
 body {
