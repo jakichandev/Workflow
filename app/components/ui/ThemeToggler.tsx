@@ -1,23 +1,22 @@
 "use client";
-import {SunIcon} from "@phosphor-icons/react";
-
-import { useState } from "react";
-
+import { SunIcon } from "@phosphor-icons/react";
+import { useTheme } from "@/app/hooks/useTheme";
 
 const ThemeToggler = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const { theme, toggleTheme } = useTheme();
+
   return (
-    <div className="w-16 h-8 dark:bg-theme-galaxy-200 relative p-0.5 rounded-3xl">
+    <div className="w-16 h-8 bg-theme-moon-200 dark:bg-theme-galaxy-600 relative p-0.5 rounded-3xl">
       <div
-        onClick={() => setIsDarkMode(!isDarkMode)}
-        className={`relative w-full h-full dark:bg-theme-moon-700 rounded-3xl p-0.5 cursor-pointer flex items-center`}
+        onClick={() => toggleTheme()}
+        className={`relative w-full h-full dark:bg-theme-moon-500 rounded-3xl p-0.5 cursor-pointer flex items-center`}
       >
         <div
-          className={`relative w-6 h-6 rounded-full bg-theme-galaxy-300 flex items-center justify-center ${
-            isDarkMode ? "left-[calc(100%-1.5rem)]" : "left-0"
-          } transition-all duration-100`}
+          className={`relative w-6 h-6 rounded-full bg-theme-galaxy-500 dark:bg-theme-galaxy-300 flex items-center justify-center ${
+            theme === "dark" ? "left-[calc(100%-1.5rem)]" : "left-0"
+          } transition-all duration-200`}
         >
-          <SunIcon color="#425161" size={12} />
+          <SunIcon color="var(--color-icon-toggler)" size={12} />
         </div>
       </div>
     </div>
