@@ -3,6 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
+  /* Theme Colors */
   --color-theme-hotrock-50: #f4f1f1;
   --color-theme-hotrock-100: #dbd0d0;
   --color-theme-hotrock-200: #ccbdbd;
@@ -39,9 +40,16 @@
   --color-theme-moon-900: #1d232a;
   --color-theme-moon-950: #0a0d0f;
 
-  --text-big: 3rem;
+
+
+/* Text Sizes */
+  --text-big: 2rem;
   --text-medium: 1.5rem;
   --text-small: 1rem;
+
+/* Breakpoints */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 660px;
 }
 
 body {
