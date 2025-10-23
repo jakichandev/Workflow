@@ -1,22 +1,47 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-theme-hotrock-50: #f4f1f1;
+  --color-theme-hotrock-100: #dbd0d0;
+  --color-theme-hotrock-200: #ccbdbd;
+  --color-theme-hotrock-300: #b8a3a3;
+  --color-theme-hotrock-400: #a48989;
+  --color-theme-hotrock-500: #906f6f;
+  --color-theme-hotrock-600: #765b5b;
+  --color-theme-hotrock-700: #5c4747;
+  --color-theme-hotrock-800: #423333;
+  --color-theme-hotrock-900: #281f1f;
+  --color-theme-hotrock-950: #0e0b0b;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-theme-galaxy-50: #eceafb;
+  --color-theme-galaxy-100: #cac3f4;
+  --color-theme-galaxy-200: #a89cec;
+  --color-theme-galaxy-300: #8776e5;
+  --color-theme-galaxy-400: #654fde;
+  --color-theme-galaxy-500: #4d35d8;
+  --color-theme-galaxy-600: #3721b0;
+  --color-theme-galaxy-700: #2b1a89;
+  --color-theme-galaxy-800: #1f1363;
+  --color-theme-galaxy-900: #130b3c;
+  --color-theme-galaxy-950: #070415;
+
+  --color-theme-moon-50: #f0f2f5;
+  --color-theme-moon-100: #d5dbe2;
+  --color-theme-moon-200: #bcc6d1;
+  --color-theme-moon-300: #9eadbd;
+  --color-theme-moon-400: #8396aa;
+  --color-theme-moon-500: #677f98;
+  --color-theme-moon-600: #55687c;
+  --color-theme-moon-700: #425161;
+  --color-theme-moon-800: #303a46;
+  --color-theme-moon-900: #1d232a;
+  --color-theme-moon-950: #0a0d0f;
+
+  --text-big: 3rem;
+  --text-medium: 1.5rem;
+  --text-small: 1rem;
 }
 
 body {
