@@ -1,5 +1,5 @@
 "use client";
-import { SunIcon } from "@phosphor-icons/react";
+import { MoonIcon } from "@phosphor-icons/react";
 import { useTheme } from "@/app/hooks/useTheme";
 
 const ThemeToggler = () => {
@@ -16,7 +16,7 @@ const ThemeToggler = () => {
             theme === "dark" ? "left-[calc(100%-1.5rem)]" : "left-0"
           } transition-all duration-200`}
         >
-          <SunIcon color="var(--color-icon-toggler)" size={12} />
+          <MoonIcon color="var(--color-icon-toggler)" size={12} />
         </div>
       </div>
     </div>

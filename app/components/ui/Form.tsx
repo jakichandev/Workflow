@@ -1,11 +1,5 @@
-"use client";
 import { useState } from "react";
-
-interface FormData {
-  email?: string;
-  password?: string;
-  confirmPassword?: string;
-}
+import { handleRegister, handleLogin } from "@/app/actions/handleForm";
 
 interface FormFieldProps {
   label: string;
@@ -32,15 +26,14 @@ const formClass = {
 const FormField = ({ label, onChange, type, placeholder }: FormFieldProps) => {
   return (
     <div>
-      <label className={formClass.label} htmlFor="">
-        {label}
-      </label>
+      <label className={formClass.label}>{label}</label>
       <input
         className={formClass.input}
         name=""
         type={type}
         onChange={(e) => onChange?.(e.target.value)}
         placeholder={placeholder}
+        required
       />
     </div>
   );
@@ -51,49 +44,34 @@ const Form = ({
 }: {
   alignment?: "default" | "centered";
 }) => {
-  const [formData, setFormData] = useState<FormData>({});
-  const [type, setType] = useState<"login" | "register">("login");
-
-  const login = (data: FormData) => {
-    console.log("login", data);
-  };
-
-  const register = (data: FormData) => {
-    console.log("register", data);
-  };
+ 
+ const [type, setType] = useState<"login" | "register">("login");
 
   if (type === "register") {
     return (
       <form
+        action={handleRegister}
         className={`${formClass.main} ${
           alignment === "centered"
             ? "fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             : ""
         }`}
-        onSubmit={(e) => {
-          e.preventDefault();
-          register(formData);
-        }}
       >
         <h2 className={formClass.h}>Registrati</h2>
         <FormField
           label="Email"
           type="email"
-          onChange={(value) => setFormData({ ...formData, email: value })}
           placeholder="Inserisci la tua email"
         />
         <FormField
           label="Password"
           type="password"
-          onChange={(value) => setFormData({ ...formData, password: value })}
           placeholder="Inserisci la tua password"
         />
         <FormField
           label="Confirm Password"
           type="password"
-          onChange={(value) =>
-            setFormData({ ...formData, confirmPassword: value })
-          }
+          placeholder="Conferma la tua password"
         />
         <button className={formClass.button} type="submit">
           Register
@@ -115,27 +93,22 @@ const Form = ({
 
   return (
     <form
+      action={handleLogin}
       className={`${formClass.main} ${
         alignment === "centered"
           ? "fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           : ""
       }`}
-      onSubmit={(e) => {
-        e.preventDefault();
-        login(formData);
-      }}
     >
       <h2 className={formClass.h}>Accedi</h2>
       <FormField
         label="Email"
         type="email"
-        onChange={(value) => setFormData({ ...formData, email: value })}
         placeholder="Inserisci la tua email"
       />
       <FormField
         label="Password"
         type="password"
-        onChange={(value) => setFormData({ ...formData, password: value })}
         placeholder="Inserisci la tua password"
       />
       <button className={formClass.button} type="submit">
